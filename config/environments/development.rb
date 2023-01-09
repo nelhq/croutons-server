@@ -72,4 +72,4 @@ Rails.application.configure do
 end
 
 Rails.application.routes.default_url_options[:host] = 'localhost'
-  Rails.application.routes.default_url_options[:port] = 4001
+Rails.application.routes.default_url_options[:port] = 4001
