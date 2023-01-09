@@ -12,7 +12,6 @@ module Mutations
 
       if transfer_request.save
         Line::MessageBot.push_message(context[:current_user].line_user_id, Line::MessageBot::TRANSFER_REQUEST_MESSAGE)
-
         {
           transfer_request: transfer_request
         }
