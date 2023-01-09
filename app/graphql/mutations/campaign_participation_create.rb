@@ -11,6 +11,8 @@ module Mutations
       campaign_participation.user_id = context[:current_user].id
 
       if campaign_participation.save
+        Line::MessageBot.push_message(context[:current_user].line_user_id, Line::MessageBot::PARTICIPATED_MESSAGE)
+
         {
           campaign_participation: campaign_participation
         }
@@ -18,5 +20,7 @@ module Mutations
         # raise_resource_errors(campaign)
       end
     end
+
+
   end
 end
