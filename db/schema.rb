@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_190155) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_09_230806) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -102,6 +102,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_190155) do
     t.index ["user_id"], name: "index_tiktok_movies_on_user_id"
   end
 
+  create_table "transfer_requests", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_transfer_requests_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -137,4 +145,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_190155) do
   add_foreign_key "participation_tiktok_movies", "tiktok_movies"
   add_foreign_key "products", "brands"
   add_foreign_key "tiktok_movies", "users"
+  add_foreign_key "transfer_requests", "users"
 end
