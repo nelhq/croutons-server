@@ -22,6 +22,7 @@ gem 'devise_token_auth'
 gem "rack-cors"
 gem 'administrate-field-active_storage'
 gem "image_processing"
+gem "google-cloud-storage", "~> 1.3", require: false
 
 
 group :development, :test do
