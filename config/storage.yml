@@ -12,8 +12,10 @@ google:
     {
       "type": "service_account",
       "project_id": "tmtre-20200922",
-      "private_key_id": <%= Rails.application.credentials.gcp_storage[:private_key_id] %>,
-      "private_key": <%= Rails.application.credentials.gcp_storage[:private_key].dump %>,
+      "private_key_id": <%= Rails.application.credentials.dig(:gcp_storage,
+      :private_key_id) %>,
+      "private_key": <%= Rails.application.credentials.dig(:gcp_storage,
+      :private_key).dump %>,
       "client_email": "croutons-active-storage@tmtre-20200922.iam.gserviceaccount.com",
       "client_id": "113506336071204424489",
       "auth_uri": "https://accounts.google.com/o/oauth2/auth",
