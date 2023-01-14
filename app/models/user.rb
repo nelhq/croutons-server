@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
   def tiktok_integration_url
     redirect_uri = Rails.env.development? ? DEVELOPMENT_REDIRECT_URL : Rails.application.routes.url_helpers.tiktok_auth_registrations_callback_url(protocol: 'https')
-    redirect_uri = "#{redirect_uri}?user_uid=#{uid}"
+    redirect_uri = "#{redirect_uri}%3Fuser_uid=#{uid}"
     base_url = 'https://www.tiktok.com/auth/authorize/'
     base_url = base_url + "?client_key=#{ENV['TIKTOK_KEY']}"
     base_url = base_url + "&scope=user.info.basic,video.list"
