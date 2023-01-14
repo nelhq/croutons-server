@@ -36,8 +36,8 @@ class User < ActiveRecord::Base
     base_url = 'https://www.tiktok.com/auth/authorize/'
     base_url = base_url + "?client_key=#{ENV['TIKTOK_KEY']}"
     base_url = base_url + "&scope=user.info.basic,video.list"
-    base_url = base_url + "&response_type=code"
     base_url = base_url + "&redirect_uri=#{redirect_uri}"
+    base_url = base_url + "&response_type=code"
     base_url
   end
 end
