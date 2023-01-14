@@ -1,11 +1,7 @@
-module Api::V1::TiktokAuth
+module TiktokAuth
   class RegistrationsController < ApplicationController
 
     CALLBACK_REDIRECT_URL = ENV['LIFF_URL']
-
-    def new
-      url = authenticate_url
-    end
 
     def callback
       response_token_body = TiktokAccessToken.get_access_token(params[:code])
@@ -19,7 +15,12 @@ module Api::V1::TiktokAuth
         tiktok_union_id: tiktok_user_info.dig('data', 'user', 'union_id'),
         tiktok_profile_deep_link: tiktok_user_info.dig('data', 'user', 'profile_deep_link'),
       )
-      redirect_to CALLBACK_REDIRECT_URL, allow_other_host: true
+
+      redirect_to tiktok_auth_registrations_thanks_path
     end
+
+    def thanks
+    end
+
   end
 end

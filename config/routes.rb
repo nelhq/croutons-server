@@ -6,15 +6,16 @@ Rails.application.routes.draw do
         registrations: 'api/v1/line_token_auth/registrations',
         sessions: 'api/v1/line_token_auth/sessions'
       }
-      namespace :tiktok_auth do
-        get 'registrations/new', to: "registrations#new"
-        get 'registrations/callback', to: "registrations#callback"
-      end
     end
   end
 
   if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
+
+  namespace :tiktok_auth do
+    get 'registrations/callback', to: "registrations#callback"
+    get 'registrations/thanks', to: "registrations#thanks"
   end
 
   post "/graphql", to: "graphql#execute"
