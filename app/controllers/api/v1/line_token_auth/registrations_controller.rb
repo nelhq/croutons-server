@@ -18,10 +18,9 @@ module Api::V1::LineTokenAuth
 
       ActiveRecord::Base.transaction do
         if active_for_authentication?
-            @token = @resource.create_token
-            @resource.save!
-
-            # UserProfile.create!(user_id: @resource.id, line_user_id: @resource.uid, account_name: auth_result[:profile][:name])
+          @token = @resource.create_token
+          @resource.save!
+          UserProfile.create!(user_id: @resource.id)
           update_auth_header
         end
 

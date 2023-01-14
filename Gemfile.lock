@@ -370,6 +370,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  faraday
   google-cloud-storage (~> 1.3)
   graphiql-rails
   graphql
