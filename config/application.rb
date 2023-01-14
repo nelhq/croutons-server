@@ -35,6 +35,6 @@ module Croutons
     config.generators.system_tests = nil
     config.active_storage.variant_processor = :mini_magick
     config.paths.add 'lib', eager_load: true
-    config.hosts << "41c3-240f-76-14db-1-4941-7731-936c-4561.jp.ngrok.io"
+    # config.hosts << "41c3-240f-76-14db-1-4941-7731-936c-4561.jp.ngrok.io"
   end
 end
