@@ -7,6 +7,7 @@ module Types
     field :description, String, null: true
     field :image_urls, [String], null: true
     field :price, Integer, null: true
+    field :reference_tiktok_movies, [::Types::Objects::ReferenceTiktokMovieType], null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end

@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :tiktok_movies
     resources :tiktok_movie_logs
     resources :tiktok_movie_profiles
+    resources :reference_tiktok_movies
     resources :participation_tiktok_movies
 
     root to: "campaigns#index"
