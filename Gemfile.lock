@@ -339,6 +339,11 @@ GEM
       sprockets-rails
       tilt
     selectize-rails (0.12.6)
+    sentry-rails (5.7.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.7.0)
+    sentry-ruby (5.7.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     signet (0.17.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
@@ -406,6 +411,8 @@ DEPENDENCIES
   rack-cors
   rails (~> 7.0.4)
   rspec-rails
+  sentry-rails
+  sentry-ruby
   sprockets-rails
   stimulus-rails
   turbo-rails
