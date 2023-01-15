@@ -5,6 +5,7 @@ class TiktokAccessToken < ApplicationRecord
   CLINET_KEY = ENV['TIKTOK_KEY']
   CLINET_SECRET = ENV['TIKTOK_SECRET']
   DEFAULT_SCOPE = "user.info.basic,video.list"
+  DEFAULT_VIDEO_FIELDS = "id,create_time,cover_image_url,share_url,video_description,duration,height,width,title,embed_html,embed_link,like_count,comment_count,share_count,view_count"
   RESPONSE_TYPE = "code"
   REDIRECT_PATH = "http://localhost:4001"
 
@@ -54,6 +55,18 @@ class TiktokAccessToken < ApplicationRecord
       request.params = {
         fields: DEFAULT_PROFILE_FIELDS,
       }
+    end
+    body = JSON.parse(response.body)
+  end
+
+  def get_v2_video_query(video_ids)
+    response = Faraday.post('https://open.tiktokapis.com/v2/video/query/') do |request|
+      request.headers["Authorization"] = "Bearer #{access_token}"
+      request.headers["Content-Type"] = "application/json"
+      request.params = {
+        fields: DEFAULT_VIDEO_FIELDS
+      }
+      request.body = { "filters": { "video_ids": video_ids }}.to_json
     end
     body = JSON.parse(response.body)
   end

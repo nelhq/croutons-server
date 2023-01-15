@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_14_055839) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_14_170248) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -109,9 +109,38 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_055839) do
     t.index ["user_id"], name: "index_tiktok_access_tokens_on_user_id"
   end
 
+  create_table "tiktok_movie_logs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "tiktok_movie_id", null: false
+    t.integer "like_count", null: false
+    t.integer "comment_count", null: false
+    t.integer "share_count", null: false
+    t.integer "view_count", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tiktok_movie_id"], name: "index_tiktok_movie_logs_on_tiktok_movie_id"
+  end
+
+  create_table "tiktok_movie_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "tiktok_movie_id", null: false
+    t.datetime "posted_at", null: false
+    t.string "uid", null: false
+    t.string "cover_image_url"
+    t.text "share_url", null: false
+    t.text "video_description"
+    t.integer "duration"
+    t.integer "height"
+    t.integer "width"
+    t.string "title"
+    t.text "embed_html"
+    t.text "embed_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tiktok_movie_id"], name: "index_tiktok_movie_profiles_on_tiktok_movie_id"
+  end
+
   create_table "tiktok_movies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.text "url", null: false
+    t.text "tiktok_uid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tiktok_movies_on_user_id"
@@ -172,6 +201,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_055839) do
   add_foreign_key "participation_tiktok_movies", "tiktok_movies"
   add_foreign_key "products", "brands"
   add_foreign_key "tiktok_access_tokens", "users"
+  add_foreign_key "tiktok_movie_logs", "tiktok_movies"
+  add_foreign_key "tiktok_movie_profiles", "tiktok_movies"
   add_foreign_key "tiktok_movies", "users"
   add_foreign_key "transfer_requests", "users"
   add_foreign_key "user_profiles", "users"

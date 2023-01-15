@@ -10,21 +10,9 @@ class User < ActiveRecord::Base
   has_many :campaign_participations
   has_one :tiktok_access_token
   has_one :user_profile
+  has_many :tiktok_movies, dependent: :destroy
 
   DEVELOPMENT_REDIRECT_URL = 'https://41c3-240f-76-14db-1-4941-7731-936c-4561.jp.ngrok.io/api/v1/tiktok_auth/registrations/callback'
-
-  def token_validation_response
-    {
-      user: {
-        tiktok_integration_status: tiktok_integration_status,
-        tiktok_integration_url: tiktok_integration_url,
-        user_profile: {
-          tiktok_user_name: user_profile.tiktok_user_name,
-          tiktok_user_image_url: user_profile.tiktok_user_image_url,
-        }
-      }
-    }
-  end
 
   def tiktok_integration_status
      tiktok_access_token.present?

@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class TiktokMovieDashboard < Administrate::BaseDashboard
+class TiktokMovieProfileDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,8 +9,18 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    tiktok_uid: Field::Text,
-    user: Field::BelongsTo,
+    cover_image_url: Field::String,
+    duration: Field::Number,
+    embed_html: Field::Text,
+    embed_link: Field::Text,
+    height: Field::Number,
+    posted_at: Field::DateTime,
+    share_url: Field::Text,
+    tiktok_movie: Field::BelongsTo,
+    title: Field::String,
+    uid: Field::String,
+    video_description: Field::Text,
+    width: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -22,17 +32,27 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    tiktok_uid
-    user
-    created_at
+    cover_image_url
+    duration
+    embed_html
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    tiktok_uid
-    user
+    cover_image_url
+    duration
+    embed_html
+    embed_link
+    height
+    posted_at
+    share_url
+    tiktok_movie
+    title
+    uid
+    video_description
+    width
     created_at
     updated_at
   ].freeze
@@ -41,8 +61,18 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    tiktok_uid
-    user
+    cover_image_url
+    duration
+    embed_html
+    embed_link
+    height
+    posted_at
+    share_url
+    tiktok_movie
+    title
+    uid
+    video_description
+    width
   ].freeze
 
   # COLLECTION_FILTERS
@@ -57,13 +87,10 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how tiktok movies are displayed
+  # Overwrite this method to customize how tiktok movie profiles are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(tiktok_movie)
-  #   "TiktokMovie ##{tiktok_movie.id}"
+  # def display_resource(tiktok_movie_profile)
+  #   "TiktokMovieProfile ##{tiktok_movie_profile.id}"
   # end
-  def display_resource(tiktok_movie)
-    "#{tiktok_movie.user.line_user_name} #{tiktok_movie.tiktok_uid}"
-  end
 end

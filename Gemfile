@@ -24,7 +24,7 @@ gem 'administrate-field-active_storage'
 gem "image_processing"
 gem "google-cloud-storage", "~> 1.3", require: false
 gem 'line-bot-api'
-gem 'faraday'
+gem 'faraday_middleware'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
