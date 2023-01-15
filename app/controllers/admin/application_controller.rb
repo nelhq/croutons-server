@@ -6,16 +6,15 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    before_action :authenticate_admin
+    before_action :basic_auth
 
-    def authenticate_admin
-      # TODO Add authentication logic here.
+    private
+
+    def basic_auth
+      authenticate_or_request_with_http_basic do |username, password|
+        username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
+      end
     end
 
-    # Override this value to specify the number of elements to display at a time
-    # on index pages. Defaults to 20.
-    # def records_per_page
-    #   params[:per_page] || 20
-    # end
   end
 end
