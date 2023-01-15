@@ -7,7 +7,7 @@ task :create_movie_log => :environment do
       tiktok_movie.create_movie_log
       p 'end create tiktok movie log'
     rescue => e
-      Raven.capture_exception(e)
+      Sentry.capture_exception(e)
     end
     sleep(3)
   end
