@@ -37,7 +37,6 @@ module Croutons
     config.paths.add 'lib', eager_load: true
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
-
     # config.hosts << "41c3-240f-76-14db-1-4941-7731-936c-4561.jp.ngrok.io"
   end
 end
