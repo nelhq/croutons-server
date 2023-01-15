@@ -8,18 +8,6 @@ local:
 
 google:
   service: GCS
-  keyfile:
-    {
-      "type": "service_account",
-      "project_id": "tmtre-20200922",
-      "private_key_id": <%= ENV['GCP_STORAGE_PRIVATE_KEY_ID'] %>,
-      "private_key": <%= ENV['GCP_STORAGE_PRIVATE_KEY'].dump %>,
-      "client_email": "croutons-active-storage@tmtre-20200922.iam.gserviceaccount.com",
-      "client_id": "113506336071204424489",
-      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-      "token_uri": "https://oauth2.googleapis.com/token",
-      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-      "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/croutons-active-storage%40tmtre-20200922.iam.gserviceaccount.com",
-    }
+  credentials: <%= ENV['GCS_CREDENTIALS'].as_json %>
   project: "nel2112"
   bucket: "croutons-active-storage"

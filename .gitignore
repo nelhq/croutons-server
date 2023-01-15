@@ -33,6 +33,7 @@ config/master.key
 .env
 .env.development
 .env.test
+GCS.json
 
 ## Environment normalization:
 /.bundle
