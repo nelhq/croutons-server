@@ -10,7 +10,7 @@ task :create_movie_log => :environment do
 end
 
 
-task :tiktok_access_token => :environment do
+task :refresh_access_token => :environment do
   TiktokAccessToken.all.find_each(batch_size: 100) do |tiktok_access_token|
     p 'start refresh access token'
     tiktok_access_token.refresh_access_token
