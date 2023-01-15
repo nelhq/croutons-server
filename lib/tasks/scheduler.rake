@@ -2,9 +2,13 @@ desc "This task is called by the Heroku scheduler add-on"
 
 task :create_movie_log => :environment do
   TiktokMovie.all.find_each(batch_size: 100) do |tiktok_movie|
-    p 'start create tiktok movie log'
-    tiktok_movie.create_movie_log
-    p 'end create tiktok movie log'
+    begin
+      p 'start create tiktok movie log'
+      tiktok_movie.create_movie_log
+      p 'end create tiktok movie log'
+    rescue => e
+      Raven.capture_exception(e)
+    end
     sleep(3)
   end
 end
