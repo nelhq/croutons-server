@@ -13,6 +13,6 @@ class Product < ApplicationRecord
   end
 
   def primary_image_url
-    reference_tiktok_movies?.first
+    images&.first
   end
 end
