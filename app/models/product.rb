@@ -13,6 +13,10 @@ class Product < ApplicationRecord
   end
 
   def primary_image_url
-    images&.first
+    if images.present?
+      Rails.application.routes.url_helpers.rails_storage_proxy_url(images.first)
+    else
+      nil
+    end
   end
 end
