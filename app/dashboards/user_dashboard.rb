@@ -15,9 +15,6 @@ class UserDashboard < Administrate::BaseDashboard
     confirmed_at: Field::DateTime,
     email: Field::String,
     encrypted_password: Field::String,
-    line_user_image: Field::String,
-    line_user_name: Field::String,
-    line_user_id: Field::String,
     provider: Field::String,
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
@@ -36,9 +33,6 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     email
-    line_user_image
-    line_user_name
-    line_user_id
     uid
   ].freeze
 
@@ -47,9 +41,6 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     email
-    line_user_image
-    line_user_name
-    line_user_id
     uid
   ].freeze
 
