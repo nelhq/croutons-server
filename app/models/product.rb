@@ -11,4 +11,8 @@ class Product < ApplicationRecord
       Rails.application.routes.url_helpers.rails_storage_proxy_url(image)
     end
   end
+
+  def primary_image_url
+    reference_tiktok_movies?.first
+  end
 end
