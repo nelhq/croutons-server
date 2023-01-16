@@ -1,6 +1,6 @@
 class CreateTiktokMovieProfiles < ActiveRecord::Migration[7.0]
   def change
-    create_table :tiktok_movie_profiles do |t|
+    create_table :tiktok_movie_profiles, options: "DEFAULT CHARSET=utf8mb4" do |t|
       t.references :tiktok_movie, null: false, foreign_key: true
       t.datetime :posted_at, null: false
       t.string :uid, null: false

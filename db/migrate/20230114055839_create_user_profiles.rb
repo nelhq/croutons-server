@@ -1,6 +1,6 @@
 class CreateUserProfiles < ActiveRecord::Migration[7.0]
   def change
-    create_table :user_profiles do |t|
+    create_table :user_profiles, options: "DEFAULT CHARSET=utf8mb4" do |t|
       t.references :user, null: false, foreign_key: true
       t.string :tiktok_user_name
       t.text :tiktok_user_image_url

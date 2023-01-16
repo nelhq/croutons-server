@@ -1,7 +1,7 @@
 class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[7.0]
   def change
 
-    create_table(:users) do |t|
+    create_table(:users, options: "DEFAULT CHARSET=utf8mb4") do |t|
       ## Required
       t.string :provider, :null => false, :default => "email"
       t.string :uid, :null => false, :default => ""
