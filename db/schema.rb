@@ -169,6 +169,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
     t.string "tiktok_open_id"
     t.string "tiktok_union_id"
     t.text "tiktok_profile_deep_link"
+    t.string "line_user_id"
+    t.string "line_user_name"
+    t.string "line_user_image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_profiles_on_user_id"
@@ -186,9 +189,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "line_user_id"
-    t.string "line_user_name"
-    t.string "line_user_image"
     t.string "email"
     t.text "tokens"
     t.datetime "created_at", null: false
