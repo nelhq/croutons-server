@@ -12,15 +12,17 @@ module Api::V1::LineTokenAuth
       end
 
       @resource.uid = auth_result[:profile][:uid]
-      @resource.line_user_id = auth_result[:profile][:uid]
-      @resource.line_user_name = auth_result[:profile][:name]
-      @resource.line_user_image = auth_result[:profile][:image]
 
       ActiveRecord::Base.transaction do
         if active_for_authentication?
           @token = @resource.create_token
           @resource.save!
-          UserProfile.create!(user_id: @resource.id)
+          UserProfile.create!(
+            user_id: @resource.id,
+            line_user_id: auth_result[:profile][:uid],
+            line_user_name: auth_result[:profile][:name],
+            line_user_image: auth_result[:profile][:image]
+          )
           update_auth_header
         end
 

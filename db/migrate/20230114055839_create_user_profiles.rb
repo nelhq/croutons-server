@@ -7,6 +7,9 @@ class CreateUserProfiles < ActiveRecord::Migration[7.0]
       t.string :tiktok_open_id
       t.string :tiktok_union_id
       t.text :tiktok_profile_deep_link
+      t.string :line_user_id
+      t.string :line_user_name
+      t.string :line_user_image_url
 
       t.timestamps
     end
