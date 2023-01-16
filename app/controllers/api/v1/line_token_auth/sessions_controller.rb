@@ -5,13 +5,11 @@ module Api::V1::LineTokenAuth
     def create
       auth_result = authenticate(resource_params[:id_token])
       @resource = User.find_by(uid: auth_result[:profile][:uid])
+
       if @resource && (!@resource.respond_to?(:active_for_authentication?) || @resource.active_for_authentication?)
         if auth_result[:error]
           return render_error(auth_result[:error][:code], auth_result[:error][:message])
         end
-
-        @resource.line_user_name = auth_result[:profile][:name]
-        @resource.line_user_image = auth_result[:profile][:image]
 
         @token = @resource.create_token
         @resource.save

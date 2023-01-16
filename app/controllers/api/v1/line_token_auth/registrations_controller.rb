@@ -3,7 +3,6 @@ module Api::V1::LineTokenAuth
     include Api::V1::LineTokenAuth::Concerns::LineAuthenticator
 
     def create
-
       build_resource
 
       auth_result = authenticate(sign_up_params[:id_token])
@@ -21,7 +20,7 @@ module Api::V1::LineTokenAuth
             user_id: @resource.id,
             line_user_id: auth_result[:profile][:uid],
             line_user_name: auth_result[:profile][:name],
-            line_user_image: auth_result[:profile][:image]
+            line_user_image_url: auth_result[:profile][:image]
           )
           update_auth_header
         end

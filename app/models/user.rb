@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :campaign_participations
   has_one :tiktok_access_token
-  has_one :user_profile
+  has_one :user_profile, dependent: :destroy
   has_many :tiktok_movies, dependent: :destroy
 
   delegate :line_user_id, to: :user_profile
