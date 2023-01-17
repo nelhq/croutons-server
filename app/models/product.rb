@@ -3,6 +3,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
   has_many_attached :images
+  has_many :campaigns, dependent: :destroy
 
   has_many :reference_tiktok_movies, dependent: :destroy
 
