@@ -12,8 +12,8 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
+    t.string "name", limit: 255, null: false
+    t.string "record_type", limit: 255, null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -22,25 +22,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
   end
 
   create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
+    t.string "key", limit: 255, null: false
+    t.string "filename", limit: 255, null: false
+    t.string "content_type", limit: 255
     t.text "metadata"
-    t.string "service_name", null: false
+    t.string "service_name", limit: 255, null: false
     t.bigint "byte_size", null: false
-    t.string "checksum"
+    t.string "checksum", limit: 255
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
   create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "blob_id", null: false
-    t.string "variation_digest", null: false
+    t.string "variation_digest", limit: 255, null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "brands", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name", limit: 255, null: false
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
 
   create_table "campaigns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "product_id", null: false
-    t.string "name", null: false
+    t.string "name", limit: 255, null: false
     t.datetime "posted_period", null: false
     t.float "play_unit_price", null: false
     t.datetime "created_at", null: false
@@ -68,7 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
   end
 
   create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name", limit: 255, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,7 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
 
   create_table "products", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "brand_id", null: false
-    t.string "name", null: false
+    t.string "name", limit: 255, null: false
     t.text "description", null: false
     t.integer "price"
     t.datetime "created_at", null: false
@@ -105,9 +105,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
   create_table "tiktok_access_tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "access_token", null: false
-    t.string "scope", null: false
-    t.string "log_id", null: false
-    t.string "open_id", null: false
+    t.string "scope", limit: 255, null: false
+    t.string "log_id", limit: 255, null: false
+    t.string "open_id", limit: 255, null: false
     t.text "refresh_token", null: false
     t.integer "expires_in", null: false
     t.integer "refresh_expires_in", null: false
@@ -131,14 +131,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
   create_table "tiktok_movie_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "tiktok_movie_id", null: false
     t.datetime "posted_at", null: false
-    t.string "uid", null: false
-    t.string "cover_image_url"
+    t.string "uid", limit: 255, null: false
+    t.string "cover_image_url", limit: 255
     t.text "share_url", null: false
     t.text "video_description"
     t.integer "duration"
     t.integer "height"
     t.integer "width"
-    t.string "title"
+    t.string "title", limit: 255
     t.text "embed_html"
     t.text "embed_link"
     t.datetime "created_at", null: false
@@ -164,32 +164,32 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
 
   create_table "user_profiles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "tiktok_user_name"
+    t.string "tiktok_user_name", limit: 255
     t.text "tiktok_user_image_url"
-    t.string "tiktok_open_id"
-    t.string "tiktok_union_id"
+    t.string "tiktok_open_id", limit: 255
+    t.string "tiktok_union_id", limit: 255
     t.text "tiktok_profile_deep_link"
-    t.string "line_user_id"
-    t.string "line_user_name"
-    t.string "line_user_image_url"
+    t.string "line_user_id", limit: 255
+    t.string "line_user_name", limit: 255
+    t.string "line_user_image_url", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_profiles_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "provider", default: "email", null: false
-    t.string "uid", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.string "provider", limit: 255, default: "email", null: false
+    t.string "uid", limit: 255, default: "", null: false
+    t.string "encrypted_password", limit: 255, default: "", null: false
+    t.string "reset_password_token", limit: 255
     t.datetime "reset_password_sent_at"
     t.boolean "allow_password_change", default: false
     t.datetime "remember_created_at"
-    t.string "confirmation_token"
+    t.string "confirmation_token", limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.string "email"
+    t.string "unconfirmed_email", limit: 255
+    t.string "email", limit: 255
     t.text "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
