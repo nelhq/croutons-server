@@ -64,6 +64,6 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   #   "TiktokMovie ##{tiktok_movie.id}"
   # end
   def display_resource(tiktok_movie)
-    "#{tiktok_movie.user.line_user_name} #{tiktok_movie.tiktok_uid}"
+    "#{tiktok_movie.user.user_profile.tiktok_user_name} #{tiktok_movie.tiktok_uid}"
   end
 end
