@@ -8,6 +8,10 @@ class Campaign < ApplicationRecord
     user_ids
   end
 
+  def participation_count
+    campaign_participations.count + 3
+  end
+
   def parsed_posted_period
     posted_period.strftime("%Y/%m/%d")
   end

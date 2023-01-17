@@ -9,6 +9,7 @@ module Types
     field :posted_period, GraphQL::Types::ISO8601DateTime, null: false
     field :parsed_posted_period, String, null: false
     field :is_participated, Boolean, null: false
+    field :participation_count, Integer, null: false
     field :play_unit_price, Float, null: false
 
     def is_participated
