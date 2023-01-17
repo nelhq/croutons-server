@@ -7,6 +7,8 @@ class TiktokMovie < ApplicationRecord
 
   after_create :create_movie_profile
 
+  validates :tiktok_uid, uniqueness: true
+
   def fetch_v2_video_query
     video_profile = tiktok_access_token.get_v2_video_query([tiktok_uid])
     video_profile.dig('data', 'videos')[0]
