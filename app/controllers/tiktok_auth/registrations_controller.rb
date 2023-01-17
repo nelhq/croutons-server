@@ -16,6 +16,7 @@ module TiktokAuth
         tiktok_union_id: tiktok_user_info.dig('data', 'user', 'union_id'),
         tiktok_profile_deep_link: tiktok_user_info.dig('data', 'user', 'profile_deep_link'),
       )
+      Line::MessageBot.push_message(user.line_user_id, Line::MessageBot::INTEGRATED_MESSAGE)
 
       redirect_to tiktok_auth_registrations_thanks_path
     end
