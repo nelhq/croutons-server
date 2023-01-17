@@ -1,7 +1,7 @@
 class Campaign < ApplicationRecord
   belongs_to :product
   has_one :brand, through: :product
-  has_many :campaign_participations
+  has_many :campaign_participations, dependent: :destroy
   has_many :users, through: :campaign_participations
 
   def participated_user_id
