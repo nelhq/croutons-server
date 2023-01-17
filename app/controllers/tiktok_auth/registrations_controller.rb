@@ -3,6 +3,7 @@ module TiktokAuth
 
     CALLBACK_REDIRECT_URL = ENV['LIFF_URL']
 
+
     def callback
       response_token_body = TiktokAccessToken.get_access_token(params[:code])
       user = User.find_by(uid: params[:user_uid])

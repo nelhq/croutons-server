@@ -1,4 +1,45 @@
-連携が完了しました。
-LINEに戻り操作を続けてください。
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Croutons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <h1>連携が完了しました。</h1>
+    <div class="description">LINEに戻り操作を続けてください。</div>
+    <%= image_tag 'line.png', class: 'lineIcon' %>
 
-<%= link_to("LINEに戻る", "https://liff.line.me/1657803925-mMJyoA4v") %>
+    <%= link_to("LINEに戻る", "https://lin.ee/Kwi5NPP", class: 'lineLink') %>
+  </body>
+</html>
+
+<style>
+body {
+  max-width: 500px;
+  padding: 42px 30px;
+  text-align: center;
+}
+h1 {
+  font-size:22px
+}
+.lineIcon {
+  width: 72px;
+    margin-bottom: 32px;
+}
+.description {
+  color: rgba(22, 24, 35, 0.34);
+  margin-bottom: 24px;
+}
+.lineLink {
+  background-color: #06c755;
+  color: white;
+  padding: 12px 0px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 18px;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+</style>
