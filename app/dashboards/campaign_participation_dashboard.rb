@@ -64,6 +64,6 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
   #   "CampaignParticipation ##{campaign_participation.id}"
   # end
   def display_resource(campaign_participation)
-    "#{campaign_participation.user.line_user_name} #{campaign_participation.product.name} #{campaign_participation.campaign.name}"
+    "#{campaign_participation.user.user_profile.tiktok_user_name} #{campaign_participation.product.name} #{campaign_participation.campaign.name}"
   end
 end
