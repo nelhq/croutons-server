@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_085912) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 255, null: false
     t.string "record_type", limit: 255, null: false
@@ -138,7 +138,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_154329) do
     t.integer "duration"
     t.integer "height"
     t.integer "width"
-    t.string "title", limit: 255
+    t.text "title"
     t.text "embed_html"
     t.text "embed_link"
     t.datetime "created_at", null: false
