@@ -38,6 +38,7 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     campaign
     user
     posted_movie?
+    tiktok_movies
     created_at
     updated_at
   ].freeze
