@@ -9,8 +9,7 @@ class Campaign < ApplicationRecord
   end
 
   def participation_count
-    # campaign_participations.count + 3
-    18
+    campaign_participations.count + 3
   end
 
   def parsed_posted_period
