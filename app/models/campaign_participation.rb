@@ -6,4 +6,8 @@ class CampaignParticipation < ApplicationRecord
   has_many :tiktok_movies, through: :participation_tiktok_movies
 
   validates :user_id,  uniqueness: { scope: [:campaign_id]  }
+
+  def posted_movie?
+    tiktok_movies.present?
+  end
 end

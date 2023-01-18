@@ -9,19 +9,12 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    allow_password_change: Field::Boolean,
-    confirmation_sent_at: Field::DateTime,
-    confirmation_token: Field::String,
-    confirmed_at: Field::DateTime,
     email: Field::String,
-    encrypted_password: Field::String,
     provider: Field::String,
-    remember_created_at: Field::DateTime,
-    reset_password_sent_at: Field::DateTime,
-    reset_password_token: Field::String,
     tokens: Field::Text,
     uid: Field::String,
-    unconfirmed_email: Field::String,
+    line_user_name: Field::String,
+    line_user_id: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -41,6 +34,8 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     email
+    line_user_name
+    line_user_id
     uid
   ].freeze
 
