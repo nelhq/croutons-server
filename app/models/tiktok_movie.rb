@@ -11,6 +11,8 @@ class TiktokMovie < ApplicationRecord
 
   validates :tiktok_uid, uniqueness: true
 
+  scope :posted_between_ten_minties, -> { joins(:tiktok_movie_profile).merge(TiktokMovieProfile.where(posted_at: (Time.zone.now.ago(10.minutes))..Time.zone.now)) }
+
   def fetch_v2_video_query
     video_profile = tiktok_access_token.get_v2_video_query([tiktok_uid])
     video_profile.dig('data', 'videos')[0]
