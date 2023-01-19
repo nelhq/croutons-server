@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_18_085912) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_155158) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 255, null: false
     t.string "record_type", limit: 255, null: false
@@ -100,6 +100,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_085912) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_reference_tiktok_movies_on_product_id"
+  end
+
+  create_table "rewards", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rewards_on_user_id"
   end
 
   create_table "tiktok_access_tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -209,6 +217,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_085912) do
   add_foreign_key "participation_tiktok_movies", "tiktok_movies"
   add_foreign_key "products", "brands"
   add_foreign_key "reference_tiktok_movies", "products"
+  add_foreign_key "rewards", "users"
   add_foreign_key "tiktok_access_tokens", "users"
   add_foreign_key "tiktok_movie_logs", "tiktok_movies"
   add_foreign_key "tiktok_movie_profiles", "tiktok_movies"

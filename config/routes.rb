@@ -21,17 +21,17 @@ Rails.application.routes.draw do
   post "/graphql", to: "graphql#execute"
 
   namespace :admin do
-    resources :users
-    resources :brands
     resources :companies
+    resources :brands
     resources :products
     resources :campaigns
-    resources :campaign_participations
     resources :tiktok_movies
-    resources :tiktok_movie_logs
+    resources :participation_tiktok_movies
+    resources :campaign_participations
     resources :tiktok_movie_profiles
     resources :reference_tiktok_movies
-    resources :participation_tiktok_movies
+    resources :rewards
+    resources :users
 
     root to: "campaigns#index"
   end

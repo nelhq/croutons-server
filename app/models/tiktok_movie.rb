@@ -3,7 +3,9 @@ class TiktokMovie < ApplicationRecord
   has_one :tiktok_access_token, through: :user
   has_many :tiktok_movie_logs, dependent: :destroy
   has_one :tiktok_movie_profile, dependent: :destroy
-  has_many :participation_tiktok_movies, dependent: :destroy
+  has_one :participation_tiktok_movie, dependent: :destroy
+  has_one :campaign_participation, through: :participation_tiktok_movie
+  has_one :campaign, through: :campaign_participation
 
   after_create :create_movie_profile
 

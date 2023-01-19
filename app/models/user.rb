@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_one :tiktok_access_token
   has_one :user_profile, dependent: :destroy
   has_many :tiktok_movies, dependent: :destroy
+  has_many :rewards, dependent: :destroy
 
   delegate :line_user_id, to: :user_profile
   delegate :line_user_name, to: :user_profile
