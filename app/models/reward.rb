@@ -8,6 +8,7 @@ class Reward < ApplicationRecord
         campaign = tiktok_movie_profile.tiktok_movie.campaign
         tiktok_movie_log = tiktok_movie_profile.tiktok_movie.create_movie_log
         Reward.create!(
+          user: user,
           amount: calcurate_reward(tiktok_movie_log.view_count, campaign.play_unit_price)
         )
       end
