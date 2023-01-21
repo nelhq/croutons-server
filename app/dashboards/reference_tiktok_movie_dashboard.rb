@@ -10,7 +10,7 @@ class ReferenceTiktokMovieDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     embed_url: Field::Text,
-    product: Field::BelongsTo,
+    product_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,7 +23,7 @@ class ReferenceTiktokMovieDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     embed_url
-    product
+    product_id
     created_at
   ].freeze
 
@@ -32,7 +32,7 @@ class ReferenceTiktokMovieDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     embed_url
-    product
+    product_id
     created_at
     updated_at
   ].freeze
@@ -42,7 +42,7 @@ class ReferenceTiktokMovieDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     embed_url
-    product
+    product_id
   ].freeze
 
   # COLLECTION_FILTERS
