@@ -11,7 +11,6 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     id: Field::Number,
     campaign_id: Field::Number,
     user_id: Field::Number,
-    tiktok_movies: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -25,7 +24,6 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     id
     campaign_id
     user_id
-    tiktok_movies
     created_at
   ].freeze
 
@@ -35,7 +33,6 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     id
     campaign_id
     user_id
-    tiktok_movies
     created_at
     updated_at
   ].freeze

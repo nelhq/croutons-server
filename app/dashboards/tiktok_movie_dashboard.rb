@@ -10,7 +10,6 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     tiktok_uid: Field::Text,
-    tiktok_movie_logs: Field::HasMany,
     user_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -25,7 +24,6 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
     id
     user_id
     tiktok_uid
-    tiktok_movie_logs
     created_at
   ].freeze
 
@@ -35,7 +33,6 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
     id
     user_id
     tiktok_uid
-    tiktok_movie_logs
     created_at
     updated_at
   ].freeze
