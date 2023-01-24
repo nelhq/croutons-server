@@ -10,7 +10,8 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     tiktok_uid: Field::Text,
-    user_id: Field::Number,
+    tiktok_movie_logs: Field::HasMany,
+    user: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -22,8 +23,9 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    user_id
+    user
     tiktok_uid
+    tiktok_movie_logs
     created_at
   ].freeze
 
@@ -31,8 +33,9 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    user_id
+    user
     tiktok_uid
+    tiktok_movie_logs
     created_at
     updated_at
   ].freeze
@@ -42,7 +45,7 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     tiktok_uid
-    user_id
+    user
   ].freeze
 
   # COLLECTION_FILTERS

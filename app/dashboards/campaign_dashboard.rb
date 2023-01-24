@@ -10,7 +10,7 @@ class CampaignDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
-    product_id: Field::Number,
+    product: Field::BelongsTo,
     posted_period: Field::DateTime,
     play_unit_price: Field::Number,
     created_at: Field::DateTime,
@@ -25,7 +25,7 @@ class CampaignDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
-    product_id
+    product
     posted_period
     play_unit_price
   ].freeze
@@ -35,7 +35,7 @@ class CampaignDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     name
-    product_id
+    product
     posted_period
     play_unit_price
     created_at
@@ -47,7 +47,7 @@ class CampaignDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
-    product_id
+    product
     play_unit_price
     posted_period
   ].freeze

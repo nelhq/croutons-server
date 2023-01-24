@@ -10,7 +10,7 @@ class RewardDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     amount: Field::Number,
-    user_id: Field::Number,
+    user: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,7 +23,7 @@ class RewardDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     amount
-    user_id
+    user
     created_at
   ].freeze
 
@@ -32,7 +32,7 @@ class RewardDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     amount
-    user_id
+    user
     created_at
     updated_at
   ].freeze
@@ -42,7 +42,7 @@ class RewardDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     amount
-    user_id
+    user
   ].freeze
 
   # COLLECTION_FILTERS

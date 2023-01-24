@@ -9,8 +9,10 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    campaign_id: Field::Number,
-    user_id: Field::Number,
+    campaign: Field::BelongsTo,
+    user: Field::BelongsTo,
+    tiktok_movies: Field::HasMany,
+    posted_movie?: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -22,8 +24,10 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    campaign_id
-    user_id
+    campaign
+    user
+    posted_movie?
+    tiktok_movies
     created_at
   ].freeze
 
@@ -31,8 +35,10 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    campaign_id
-    user_id
+    campaign
+    user
+    posted_movie?
+    tiktok_movies
     created_at
     updated_at
   ].freeze
@@ -41,8 +47,8 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    campaign_id
-    user_id
+    campaign
+    user
   ].freeze
 
   # COLLECTION_FILTERS

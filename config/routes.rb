@@ -32,7 +32,6 @@ Rails.application.routes.draw do
     resources :reference_tiktok_movies
     resources :rewards
     resources :users
-    resources :user_profiles
 
     root to: "campaigns#index"
   end
