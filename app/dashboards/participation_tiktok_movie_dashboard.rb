@@ -9,9 +9,9 @@ class ParticipationTiktokMovieDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    campaign_participation: Field::BelongsTo,
+    campaign_participation_id: Field::Number,
     status: Field::Select.with_options(collection: ::ParticipationTiktokMovie.statuses.keys),
-    tiktok_movie: Field::BelongsTo,
+    tiktok_movie_id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,18 +23,18 @@ class ParticipationTiktokMovieDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    campaign_participation
+    campaign_participation_id
     status
-    tiktok_movie
+    tiktok_movie_id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    campaign_participation
+    campaign_participation_id
     status
-    tiktok_movie
+    tiktok_movie_id
     created_at
     updated_at
   ].freeze
@@ -43,9 +43,9 @@ class ParticipationTiktokMovieDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    campaign_participation
+    campaign_participation_id
     status
-    tiktok_movie
+    tiktok_movie_id
   ].freeze
 
   # COLLECTION_FILTERS
