@@ -12,7 +12,7 @@ class TiktokMovieLogDashboard < Administrate::BaseDashboard
     comment_count: Field::Number,
     like_count: Field::Number,
     share_count: Field::Number,
-    tiktok_movie_id: Field::Number,
+    tiktok_movie: Field::BelongsTo,
     view_count: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -37,7 +37,7 @@ class TiktokMovieLogDashboard < Administrate::BaseDashboard
     comment_count
     like_count
     share_count
-    tiktok_movie_id
+    tiktok_movie
     view_count
     created_at
     updated_at
@@ -50,7 +50,7 @@ class TiktokMovieLogDashboard < Administrate::BaseDashboard
     comment_count
     like_count
     share_count
-    tiktok_movie_id
+    tiktok_movie
     view_count
   ].freeze
 

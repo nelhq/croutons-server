@@ -16,7 +16,7 @@ class TiktokMovieProfileDashboard < Administrate::BaseDashboard
     height: Field::Number,
     posted_at: Field::DateTime,
     share_url: Field::Text,
-    tiktok_movie_id: Field::Number,
+    tiktok_movie: Field::BelongsTo,
     title: Field::String,
     uid: Field::String,
     video_description: Field::Text,
@@ -48,7 +48,7 @@ class TiktokMovieProfileDashboard < Administrate::BaseDashboard
     height
     posted_at
     share_url
-    tiktok_movie_id
+    tiktok_movie
     title
     uid
     video_description
@@ -68,7 +68,7 @@ class TiktokMovieProfileDashboard < Administrate::BaseDashboard
     height
     posted_at
     share_url
-    tiktok_movie_id
+    tiktok_movie
     title
     uid
     video_description
