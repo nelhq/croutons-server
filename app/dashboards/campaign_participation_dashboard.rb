@@ -13,6 +13,7 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     user: Field::BelongsTo,
     tiktok_movies: Field::HasMany,
     posted_movie?: Field::Boolean,
+    having_status: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,6 +27,7 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     id
     campaign
     user
+    having_status
     posted_movie?
     tiktok_movies
     created_at
@@ -37,6 +39,7 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     id
     campaign
     user
+    having_status
     posted_movie?
     tiktok_movies
     created_at
