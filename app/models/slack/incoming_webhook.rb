@@ -1,9 +1,9 @@
 module Slack
   class IncomingWebhook
-    SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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'
+    SLACK_WEBHOOK_URL = 'https://hooks.slack.com/services/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'
 
-    def self.notifier
-      Slack::Notifier.new(SLACK_WEBHOOK_URL, username: 'notifier', icon_emoji: ':sunglasses:')
+    def self.croutons_notifier
+      Slack::Notifier.new(SLACK_WEBHOOK_URL, username: 'croutons_notifier', icon_emoji: ':sunglasses:')
     end
   end
 end

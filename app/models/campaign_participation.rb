@@ -16,6 +16,6 @@ class CampaignParticipation < ApplicationRecord
   end
 
   def slack_notification
-    Slack::IncomingWebhook.notifier.ping("参加がありました。#{user.user_profile.tiktok_user_name}/#{having_status}")
+    Slack::IncomingWebhook.croutons_notifier.ping("参加がありました。#{user.user_profile.tiktok_user_name}/#{having_status}")
   end
 end
