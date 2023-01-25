@@ -7,6 +7,8 @@ class CampaignParticipation < ApplicationRecord
 
   validates :user_id,  uniqueness: { scope: [:campaign_id]  }
 
+  enum :having_status, { not_selected: 0, already_have: 1, not_having: 2}
+
   def posted_movie?
     tiktok_movies.present?
   end

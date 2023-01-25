@@ -4,6 +4,7 @@ module Mutations
   class CampaignParticipationCreate < Mutations::BaseMutation
     argument :campaign_id, String, required: true
     argument :user_id, String, required: true
+    argument :having_status, String, required: true
 
     field :campaign_participation, Types::Objects::CampaignParticipationType, null: false
 

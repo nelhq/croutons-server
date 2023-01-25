@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_18_155158) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_095533) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 255, null: false
     t.string "record_type", limit: 255, null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_155158) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "having_status", default: 0, null: false
     t.index ["campaign_id", "user_id"], name: "index_campaign_participations_on_campaign_id_and_user_id", unique: true
     t.index ["campaign_id"], name: "index_campaign_participations_on_campaign_id"
     t.index ["user_id"], name: "index_campaign_participations_on_user_id"

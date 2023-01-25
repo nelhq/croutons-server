@@ -23,7 +23,6 @@ task :create_reward => :environment do
   end
 end
 
-
 task :refresh_access_token => :environment do
   TiktokAccessToken.all.find_each(batch_size: 100) do |tiktok_access_token|
     begin
