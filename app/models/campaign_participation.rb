@@ -9,13 +9,8 @@ class CampaignParticipation < ApplicationRecord
 
   enum :having_status, { not_selected: 0, already_have: 1, not_having: 2}
 
-  after_create :slack_notification
-
   def posted_movie?
     tiktok_movies.present?
   end
 
-  def slack_notification
-    Slack::IncomingWebhook.croutons_notifier.ping("参加がありました。#{user.user_profile.tiktok_user_name}/#{having_status}")
-  end
 end
