@@ -28,6 +28,7 @@ gem 'faraday_middleware'
 gem "sentry-ruby"
 gem "sentry-rails"
 gem 'slack-notifier'
+gem 'redcarpet'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

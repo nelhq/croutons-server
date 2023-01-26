@@ -5,6 +5,7 @@ module Types
     field :id, ID, null: false
     field :name, String, null: false
     field :description, String, null: true
+    field :parsed_description, String, null: true
     field :image_urls, [String], null: true
     field :primary_image_url, String, null: true
     field :price, Integer, null: true
