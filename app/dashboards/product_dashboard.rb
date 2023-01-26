@@ -12,7 +12,11 @@ class ProductDashboard < Administrate::BaseDashboard
     brand: Field::BelongsTo,
     name: Field::String,
     price: Field::Number,
-    images: Field::ActiveStorage,
+    images: Field::ActiveStorage.with_options(
+      destroy_url: proc do |namespace, resource, attachment|
+        [:admin_product_custom_product_image_destroy, { attachment_id: attachment.id, product_id: resource.id }]
+      end
+    ),
     description: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,

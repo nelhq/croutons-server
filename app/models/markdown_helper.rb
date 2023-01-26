@@ -4,7 +4,8 @@ class MarkdownHelper
     options = {
       filter_html:     true,
       hard_wrap:       false,
-      space_after_headers: true
+      space_after_headers: true,
+      link_attributes: { rel: 'nofollow', target: '_blank' }
     }
     extensions = {
       autolink: true,

@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :companies
     resources :brands
-    resources :products
+    resources :products do
+      delete :custom_product_image_destroy, to: 'products#destroy_image'
+    end
     resources :campaigns
     resources :tiktok_movies
     resources :participation_tiktok_movies
