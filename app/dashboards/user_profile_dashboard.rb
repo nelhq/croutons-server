@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class UserDashboard < Administrate::BaseDashboard
+class UserProfileDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,12 +9,15 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    email: Field::String,
-    provider: Field::String,
-    tokens: Field::Text,
-    uid: Field::String,
-    line_user_name: Field::String,
     line_user_id: Field::String,
+    line_user_image_url: Field::String,
+    line_user_name: Field::String,
+    tiktok_open_id: Field::String,
+    tiktok_profile_deep_link: Field::Text,
+    tiktok_union_id: Field::String,
+    tiktok_user_image_url: Field::Text,
+    tiktok_user_name: Field::String,
+    user: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -25,29 +28,42 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    email
-    uid
+    id
+    line_user_id
+    line_user_image_url
+    line_user_name
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    email
-    line_user_name
     line_user_id
-    uid
+    line_user_image_url
+    line_user_name
+    tiktok_open_id
+    tiktok_profile_deep_link
+    tiktok_union_id
+    tiktok_user_image_url
+    tiktok_user_name
+    user
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    email
-    provider
-    uid
-    line_user_name
     line_user_id
+    line_user_image_url
+    line_user_name
+    tiktok_open_id
+    tiktok_profile_deep_link
+    tiktok_union_id
+    tiktok_user_image_url
+    tiktok_user_name
+    user
   ].freeze
 
   # COLLECTION_FILTERS
@@ -62,11 +78,10 @@ class UserDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how users are displayed
+  # Overwrite this method to customize how user profiles are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(user)
-    "#{user.user_profile.tiktok_user_name} / #{user.user_profile.tiktok_profile_deep_link}"
-  end
-
+  # def display_resource(user_profile)
+  #   "UserProfile ##{user_profile.id}"
+  # end
 end
