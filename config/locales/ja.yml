@@ -7,11 +7,11 @@ ja:
       product: 商品
       campaign: キャンペーン
       tiktok_movie: TikTok動画
-      participation_tiktok_movie: 参加TikTok動画
+      participation_tiktok_movie: キャンペーン参加とTiktok動画
       campaign_participation: キャンペーン参加
       tiktok_movie_profile: TikTok動画情報
       reward: 報酬
-      reference_tiktok_movie: 参照TikTok動画
+      reference_tiktok_movie: 参考TikTok動画
       user_profile: ユーザープロフィール
     attributes:
       user:
