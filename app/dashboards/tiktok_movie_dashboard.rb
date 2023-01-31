@@ -11,7 +11,6 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
     id: Field::Number,
     tiktok_uid: Field::Text,
     tiktok_movie_logs: Field::HasMany,
-    tiktok_movie_log_after_48_hours: Field::HasOne,
     view_count_after_48_hours: Field::Number,
     user: Field::BelongsTo,
     created_at: Field::DateTime,
@@ -39,7 +38,6 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
     user
     tiktok_uid
     tiktok_movie_logs
-    tiktok_movie_log_after_48_hours
     view_count_after_48_hours
     created_at
     updated_at
