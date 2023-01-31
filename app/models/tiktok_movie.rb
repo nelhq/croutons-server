@@ -8,7 +8,7 @@ class TiktokMovie < ApplicationRecord
   has_one :campaign, through: :campaign_participation
 
   has_one :tiktok_movie_log_after_48_hours, -> (tiktok_movie) {
-    where(created_at: tiktok_movie.posted_at.since(47.hours)...tiktok_movie.posted_at.since(48.hours)).last
+    where(created_at: tiktok_movie.posted_at.since(47.hours)...tiktok_movie.posted_at.since(48.hours))
   }, class_name: :TiktokMovieLog
 
   delegate :posted_at, to: :tiktok_movie_profile
