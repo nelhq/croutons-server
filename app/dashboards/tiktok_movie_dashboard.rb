@@ -12,6 +12,7 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
     tiktok_uid: Field::Text,
     tiktok_movie_logs: Field::HasMany,
     tiktok_movie_log_after_48_hours: Field::HasOne,
+    tiktok_movie_profile: Field::HasOne,
     view_count_after_48_hours: Field::Number,
     user: Field::BelongsTo,
     created_at: Field::DateTime,
@@ -26,10 +27,10 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     user
-    tiktok_uid
     tiktok_movie_logs
     tiktok_movie_log_after_48_hours
     view_count_after_48_hours
+    tiktok_movie_profile
     created_at
   ].freeze
 
@@ -42,8 +43,8 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
     tiktok_movie_logs
     tiktok_movie_log_after_48_hours
     view_count_after_48_hours
+    tiktok_movie_profile
     created_at
-    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
