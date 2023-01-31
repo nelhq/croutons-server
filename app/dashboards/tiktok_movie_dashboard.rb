@@ -28,7 +28,6 @@ class TiktokMovieDashboard < Administrate::BaseDashboard
     user
     tiktok_uid
     tiktok_movie_logs
-    tiktok_movie_log_after_48_hours
     view_count_after_48_hours
     created_at
   ].freeze
