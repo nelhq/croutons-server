@@ -7,6 +7,11 @@ class TiktokMovie < ApplicationRecord
   has_one :campaign_participation, through: :participation_tiktok_movie
   has_one :campaign, through: :campaign_participation
 
+  has_one :tiktok_movie_log_after_48_hours, -> (tiktok_movie) {
+    where(created_at: tiktok_movie.posted_at.since(47.hours)...tiktok_movie.posted_at.since(48.hours)).last
+  }, class_name: :TiktokMovieLog
+
+  delegate :posted_at, to: :tiktok_movie_profile
   after_create :create_movie_profile
 
   validates :tiktok_uid, uniqueness: true
@@ -48,6 +53,14 @@ class TiktokMovie < ApplicationRecord
       share_count: video_profile_body['share_count'],
       view_count: video_profile_body['view_count'],
     )
+  end
+
+  def source_of_reward_log
+    tiktok_movie_logs.where(created_at: posted_at.since(47.hours)...posted_at.since(48.hours)).last
+  end
+
+  def view_count_after_48_hours
+    tiktok_movie_log_after_48_hours&.view_count
   end
 
 end
