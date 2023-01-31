@@ -28,6 +28,7 @@ class TiktokMovieLogDashboard < Administrate::BaseDashboard
     comment_count
     like_count
     share_count
+    view_count
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
