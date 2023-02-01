@@ -2,7 +2,6 @@
 
 module Queries
   class BaseQuery < GraphQL::Schema::Resolver
-    # include RaiseGqlResourceErrors
 
     def ready?(**_args)
       true

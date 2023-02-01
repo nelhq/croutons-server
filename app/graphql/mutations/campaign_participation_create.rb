@@ -8,6 +8,10 @@ module Mutations
 
     field :campaign_participation, Types::Objects::CampaignParticipationType, null: false
 
+    def authorized?(args)
+      context[:current_user].present? && context[:current_user].id.to_s == args[:user_id]
+    end
+
     def resolve(**args)
       user = User.find(args[:user_id])
       Line::MessageBot.push_message(user.line_user_id, Line::MessageBot::PARTICIPATED_MESSAGE)
