@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   has_many :tiktok_movies, dependent: :destroy
   has_many :rewards, dependent: :destroy
 
-  delegate :line_user_id, to: :user_profile
-  delegate :line_user_name, to: :user_profile
+  delegate :line_user_id, to: :user_profile, allow_nil: true
+  delegate :line_user_name, to: :user_profile, allow_nil: true
 
   DEVELOPMENT_REDIRECT_URL = 'https://41c3-240f-76-14db-1-4941-7731-936c-4561.jp.ngrok.io/api/v1/tiktok_auth/registrations/callback'
 

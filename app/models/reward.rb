@@ -17,6 +17,5 @@ class Reward < ApplicationRecord
     def calcurate_reward(view_count, play_unit_price)
       play_unit_price * view_count
     end
-
   end
 end

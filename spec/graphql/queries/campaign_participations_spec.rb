@@ -60,7 +60,7 @@ module Queries
           subject
 
           expect(response_errors).to be_present
-          expect(response_error_code).to eq(Queries::BaseQuery::AUTHENTICATION_ERROR)
+          expect(response_error_code).to eq('AUTHENTICATION_ERROR')
         end
       end
     end

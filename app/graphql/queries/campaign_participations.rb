@@ -3,7 +3,7 @@ module Queries
     type Types::Objects::CampaignParticipationType.connection_type, null: true
 
     def authorized?
-      login_required?
+      context[:current_user].present?
     end
 
     def resolve(**args)

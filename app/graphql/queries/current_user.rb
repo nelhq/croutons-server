@@ -3,7 +3,7 @@ module Queries
     type Types::Objects::UserType, null: false
 
     def authorized?
-      login_required?
+      context[:current_user].present?
     end
 
     def resolve(**args)

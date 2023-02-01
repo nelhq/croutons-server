@@ -37,4 +37,12 @@ class CroutonsSchema < GraphQL::Schema
     # For example, use Rails' GlobalID library (https://github.com/rails/globalid):
     GlobalID.find(global_id)
   end
+
+  def self.unauthorized_object(error)
+    raise GraphQL::ExecutionError.new("An object of type #{error.type.graphql_name} was hidden due to permissions", extensions: { code: 'AUTHENTICATION_ERROR' })
+  end
+
+  def self.unauthorized_field(error)
+    raise GraphQL::ExecutionError.new("An object of type #{error.type.graphql_name} was hidden due to permissions", extensions: { code: 'AUTHENTICATION_ERROR' })
+  end
 end
