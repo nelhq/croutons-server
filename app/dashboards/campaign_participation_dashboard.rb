@@ -9,7 +9,7 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    campaign: Field::BelongsTo,
+    campaign: Field::BelongsTo.with_options(searchable: true, searchable_fields: ["name"]),
     user: Field::BelongsTo,
     tiktok_movies: Field::HasMany,
     posted_movie?: Field::Boolean,

@@ -13,6 +13,7 @@ class CampaignDashboard < Administrate::BaseDashboard
     product: Field::BelongsTo,
     posted_period: Field::DateTime,
     play_unit_price: Field::Number,
+    campaign_participations: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -27,6 +28,7 @@ class CampaignDashboard < Administrate::BaseDashboard
     name
     product
     posted_period
+    campaign_participations
     play_unit_price
   ].freeze
 
@@ -38,6 +40,7 @@ class CampaignDashboard < Administrate::BaseDashboard
     product
     posted_period
     play_unit_price
+    campaign_participations
     created_at
     updated_at
   ].freeze
