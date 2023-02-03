@@ -29,9 +29,8 @@ class TiktokAccessTokenDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    access_token
-    error_code
-    expires_in
+    user
+    created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

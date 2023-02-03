@@ -7,21 +7,8 @@ class TiktokAccessToken < ApplicationRecord
   DEFAULT_SCOPE = "user.info.basic,video.list"
   DEFAULT_VIDEO_FIELDS = "id,create_time,cover_image_url,share_url,video_description,duration,height,width,title,embed_html,embed_link,like_count,comment_count,share_count,view_count"
   RESPONSE_TYPE = "code"
-  REDIRECT_PATH = "http://localhost:4001"
 
   class << self
-    def authenticate_url
-      response = Faraday.get('https://www.tiktok.com/auth/authorize/') do |request|
-        request.params = {
-          client_key: CLINET_KEY,
-          scope: DEFAULT_SCOPE,
-          response_type: RESPONSE_TYPE,
-          redirect_uri: REDIRECT_PATH,
-        }
-      end
-      uri
-    end
-
     def get_access_token(code)
       response = Faraday.get('https://open-api.tiktok.com/oauth/access_token/') do |request|
         request.params = {
