@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     resources :rewards
     resources :users
     resources :user_profiles
+    resources :tiktok_access_tokens
 
     root to: "campaigns#index"
   end
