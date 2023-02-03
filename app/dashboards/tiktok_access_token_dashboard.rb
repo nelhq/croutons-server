@@ -17,7 +17,7 @@ class TiktokAccessTokenDashboard < Administrate::BaseDashboard
     refresh_expires_in: Field::Number,
     refresh_token: Field::Text,
     scope: Field::String,
-    user: Field::BelongsTo,
+    user: Field::BelongsTo.with_options(searchable: true, searchable_fields: ["name"]),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
