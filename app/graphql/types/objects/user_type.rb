@@ -6,6 +6,7 @@ module Types
     field :tiktok_integration_status, Boolean, null: false
     field :tiktok_integration_url, String, null: true
     field :user_profile, Types::Objects::UserProfileType, null: true
+    field :rewards_sum, Integer, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end

@@ -32,4 +32,8 @@ class User < ActiveRecord::Base
     base_url = base_url + "&response_type=code"
     base_url
   end
+
+  def rewards_sum
+    rewards.sum(:amount)
+  end
 end
