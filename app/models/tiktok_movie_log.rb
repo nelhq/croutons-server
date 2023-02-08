@@ -6,7 +6,7 @@ class TiktokMovieLog < ApplicationRecord
   def create_reward
     amount = view_count * campaign.play_unit_price
     Reward.create!(
-      tikok_movie: tikok_movie,
+      tiktok_movie: tiktok_movie,
       user: user,
       amount: amount,
     )
