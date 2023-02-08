@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_25_095533) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_25_095534) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 255, null: false
     t.string "record_type", limit: 255, null: false
@@ -108,6 +108,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_095533) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tiktok_movie_id", null: false
+    t.index ["tiktok_movie_id"], name: "index_rewards_on_tiktok_movie_id", unique: true
     t.index ["user_id"], name: "index_rewards_on_user_id"
   end
 
@@ -218,6 +220,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_095533) do
   add_foreign_key "participation_tiktok_movies", "tiktok_movies"
   add_foreign_key "products", "brands"
   add_foreign_key "reference_tiktok_movies", "products"
+  add_foreign_key "rewards", "tiktok_movies"
   add_foreign_key "rewards", "users"
   add_foreign_key "tiktok_access_tokens", "users"
   add_foreign_key "tiktok_movie_logs", "tiktok_movies"

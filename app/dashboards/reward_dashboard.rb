@@ -11,6 +11,7 @@ class RewardDashboard < Administrate::BaseDashboard
     id: Field::Number,
     amount: Field::Number,
     user: Field::BelongsTo,
+    tiktok_movie: Field::BelongsTo,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -24,6 +25,7 @@ class RewardDashboard < Administrate::BaseDashboard
     id
     amount
     user
+    tiktok_movie
     created_at
   ].freeze
 
@@ -33,6 +35,7 @@ class RewardDashboard < Administrate::BaseDashboard
     id
     amount
     user
+    tiktok_movie
     created_at
     updated_at
   ].freeze
@@ -43,6 +46,7 @@ class RewardDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     amount
     user
+    tiktok_movie
   ].freeze
 
   # COLLECTION_FILTERS
