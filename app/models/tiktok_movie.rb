@@ -6,6 +6,7 @@ class TiktokMovie < ApplicationRecord
   has_one :participation_tiktok_movie, dependent: :destroy
   has_one :campaign_participation, through: :participation_tiktok_movie
   has_one :campaign, through: :campaign_participation
+  has_one :reward
 
   has_one :tiktok_movie_log_after_48_hours, -> (tiktok_movie) {
     where(created_at: tiktok_movie.posted_at.since(47.hours)...tiktok_movie.posted_at.since(48.hours))
@@ -63,4 +64,14 @@ class TiktokMovie < ApplicationRecord
     tiktok_movie_log_after_48_hours&.view_count
   end
 
+  def has_reward?
+    reward.present?
+  end
+
+  def create_reward
+    return if has_reward?
+    return unless tiktok_movie_log_after_48_hours.present?
+
+    tiktok_movie_log_after_48_hours.create_reward
+  end
 end

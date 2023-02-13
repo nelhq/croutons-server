@@ -36,4 +36,5 @@ class User < ActiveRecord::Base
   def rewards_sum
     rewards.sum(:amount)
   end
+
 end
