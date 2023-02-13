@@ -27,14 +27,13 @@ task :refresh_access_token => :environment do
 end
 
 task :create_reward => :environment do
-  TiktokMovie.posted_between_hours(60).find_each(batch_size: 100) do |tiktok_movie|
+  p 'start create tiktok movie log'
+  TiktokMovie.all.find_each(batch_size: 100) do |tiktok_movie|
     begin
-      p 'start create tiktok movie log'
       tiktok_movie.create_reward
-      p 'end create tiktok movie log'
     rescue => e
       Sentry.capture_exception(e)
     end
-    sleep(3)
   end
+  p 'end create tiktok movie log'
 end
