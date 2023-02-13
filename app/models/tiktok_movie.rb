@@ -70,7 +70,8 @@ class TiktokMovie < ApplicationRecord
 
   def create_reward
     return if has_reward?
-    return if tiktok_movie_log_after_48_hours.blank? && tiktok_movie_log_after_48_hours.view_count >= 1000
+    return if tiktok_movie_log_after_48_hours.blank?
+    return if tiktok_movie_log_after_48_hours.view_count <= 1000
 
     tiktok_movie_log_after_48_hours.create_reward
   end
