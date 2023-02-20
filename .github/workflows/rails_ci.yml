@@ -1,0 +1,42 @@
+name: "Ruby on Rails CI"
+
+on:
+  push:
+
+env:
+  RAILS_ENV: test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./server
+    timeout-minutes: 20
+    services:
+      db:
+        image: mysql:8.0.18
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_DB: croutons_test
+          MYSQL_USER: root
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: .ruby-version
+          working-directory: ./server
+      - name: Set up database schema
+        run: |
+          cp config/database.ci.yml config/database.yml
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+      - name: Run Rspec
+        run: bundle exec rspec
