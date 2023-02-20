@@ -9,9 +9,6 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./server
     timeout-minutes: 20
     services:
       db:
@@ -32,7 +29,6 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: .ruby-version
-          working-directory: ./server
       - name: Set up database schema
         run: |
           cp config/database.ci.yml config/database.yml
