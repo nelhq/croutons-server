@@ -17,4 +17,9 @@ class Campaign < ApplicationRecord
   def parsed_posted_period
     posted_period.strftime("%Y/%m/%d")
   end
+
+  def parsed_posted_period_contains_hours
+    posted_period.strftime("%Y/%m/%d %H:%M")
+  end
+
 end
