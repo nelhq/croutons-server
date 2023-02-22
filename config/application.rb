@@ -38,6 +38,6 @@ module Croutons
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
     config.i18n.default_locale = :ja
-    # config.hosts << "41c3-240f-76-14db-1-4941-7731-936c-4561.jp.ngrok.io"
+    # config.hosts << "4129-240f-76-14db-1-a024-e895-53eb-6b6f.jp.ngrok.io"
   end
 end
