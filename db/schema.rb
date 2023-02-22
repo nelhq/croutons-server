@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_21_173347) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "having_status", default: 0, null: false
-    t.string "participation_method", default: "not_selected", null: false
+    t.string "participation_method"
     t.index ["campaign_id", "user_id"], name: "index_campaign_participations_on_campaign_id_and_user_id", unique: true
     t.index ["campaign_id"], name: "index_campaign_participations_on_campaign_id"
     t.index ["user_id"], name: "index_campaign_participations_on_user_id"
