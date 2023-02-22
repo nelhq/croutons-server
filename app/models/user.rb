@@ -7,11 +7,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-  has_many :campaign_participations
-  has_one :tiktok_access_token
+  has_many :campaign_participations, dependent: :destroy
+  has_one :tiktok_access_token, dependent: :destroy
   has_one :user_profile, dependent: :destroy
   has_many :tiktok_movies, dependent: :destroy
   has_many :rewards, dependent: :destroy
+  has_many :transfer_requests, dependent: :destroy
 
   delegate :line_user_id, to: :user_profile, allow_nil: true
   delegate :line_user_name, to: :user_profile, allow_nil: true

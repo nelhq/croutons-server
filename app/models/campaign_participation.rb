@@ -9,6 +9,11 @@ class CampaignParticipation < ApplicationRecord
 
   enum :having_status, { not_selected: 0, already_have: 1, not_having: 2}
 
+  enum participation_method: {
+    tiktok_movie: 'tiktok_movie',
+    instagram_real: 'instagram_real'
+  }
+
   def posted_movie?
     tiktok_movies.present?
   end
