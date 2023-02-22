@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   delegate :line_user_id, to: :user_profile, allow_nil: true
   delegate :line_user_name, to: :user_profile, allow_nil: true
 
-  DEVELOPMENT_REDIRECT_URL = 'https://41c3-240f-76-14db-1-4941-7731-936c-4561.jp.ngrok.io/api/v1/tiktok_auth/registrations/callback'
+  DEVELOPMENT_REDIRECT_URL = 'https://4129-240f-76-14db-1-a024-e895-53eb-6b6f.jp.ngrok.io/tiktok_auth/registrations/callback'
 
   def tiktok_integration_status
      tiktok_access_token.present?
