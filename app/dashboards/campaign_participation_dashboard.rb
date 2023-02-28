@@ -14,6 +14,7 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     tiktok_movies: Field::HasMany,
     posted_movie?: Field::Boolean,
     having_status: Field::String,
+    participation_method: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -30,6 +31,7 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     having_status
     posted_movie?
     tiktok_movies
+    participation_method
     created_at
   ].freeze
 
@@ -42,6 +44,7 @@ class CampaignParticipationDashboard < Administrate::BaseDashboard
     having_status
     posted_movie?
     tiktok_movies
+    participation_method
     created_at
     updated_at
   ].freeze

@@ -66,7 +66,7 @@ class UserDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(user)
-    "#{user.user_profile&.tiktok_user_name} / #{user.user_profile&.tiktok_profile_deep_link}"
+    "#{user.user_profile&.tiktok_user_name} / #{user.user_profile&.line_user_name}"
   end
 
 end
